@@ -1,8 +1,7 @@
-package com.mongodb.starter.controllers;
+package com.project.recipeasy.controllers;
 
-import com.mongodb.starter.models.Profile;
-import com.mongodb.starter.repositories.ProfileRepository;
-import com.mongodb.starter.repositories.ProfileRepository;
+import com.project.recipeasy.models.Profile;
+import com.project.recipeasy.repositories.ProfileRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.mongodb.starter.repositories;
+package com.project.recipeasy.repositories;
 
 import com.mongodb.ReadConcern;
 import com.mongodb.ReadPreference;
@@ -10,8 +10,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.model.ReplaceOneModel;
 import com.mongodb.client.model.WriteModel;
-import com.mongodb.starter.dtos.AverageAgeDTO;
-import com.mongodb.starter.models.Person;
+import com.project.recipeasy.dtos.AverageAgeDTO;
+import com.project.recipeasy.models.Person;
 import org.bson.BsonDocument;
 import org.bson.BsonNull;
 import org.bson.conversions.Bson;

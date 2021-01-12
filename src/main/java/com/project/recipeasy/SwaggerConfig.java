@@ -1,4 +1,4 @@
-package com.mongodb.starter;
+package com.project.recipeasy;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

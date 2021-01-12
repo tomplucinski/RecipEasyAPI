@@ -1,4 +1,4 @@
-package com.mongodb.starter.repositories;
+package com.project.recipeasy.repositories;
 
 import com.mongodb.ReadConcern;
 import com.mongodb.ReadPreference;
@@ -10,7 +10,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.model.ReplaceOneModel;
 import com.mongodb.client.model.WriteModel;
-import com.mongodb.starter.models.Profile;
+import com.project.recipeasy.models.Profile;
 import org.bson.BsonDocument;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;

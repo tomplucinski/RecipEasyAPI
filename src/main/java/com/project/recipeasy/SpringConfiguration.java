@@ -1,4 +1,4 @@
-package com.mongodb.starter;
+package com.project.recipeasy;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

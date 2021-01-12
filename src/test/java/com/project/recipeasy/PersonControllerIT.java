@@ -1,9 +1,9 @@
-package com.mongodb.starter;
+package com.project.recipeasy;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.starter.models.Person;
-import com.mongodb.starter.repositories.PersonRepository;
+import com.project.recipeasy.models.Person;
+import com.project.recipeasy.repositories.PersonRepository;
 import org.bson.types.ObjectId;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;

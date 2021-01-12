@@ -1,8 +1,8 @@
-package com.mongodb.starter;
+package com.project.recipeasy;
 
-import com.mongodb.starter.models.Address;
-import com.mongodb.starter.models.Car;
-import com.mongodb.starter.models.Person;
+import com.project.recipeasy.models.Address;
+import com.project.recipeasy.models.Car;
+import com.project.recipeasy.models.Person;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

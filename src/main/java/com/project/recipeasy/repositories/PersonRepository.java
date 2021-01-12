@@ -1,6 +1,6 @@
-package com.mongodb.starter.repositories;
+package com.project.recipeasy.repositories;
 
-import com.mongodb.starter.models.Person;
+import com.project.recipeasy.models.Person;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

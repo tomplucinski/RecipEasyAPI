@@ -1,4 +1,4 @@
-package com.mongodb.starter.models;
+package com.project.recipeasy.models;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.mongodb.starter.models;
+package com.project.recipeasy.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
