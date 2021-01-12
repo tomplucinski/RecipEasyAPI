@@ -85,11 +85,6 @@ public class PersonController {
         return personRepository.update(persons);
     }
 
-    @GetMapping("persons/averageAge")
-    public Double averageAge() {
-        return personRepository.getAverageAge();
-    }
-
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public final Exception handleAllExceptions(RuntimeException e) {

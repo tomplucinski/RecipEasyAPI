@@ -30,6 +30,4 @@ public interface PersonRepository {
 
     long update(List<Person> persons);
 
-    double getAverageAge();
-
 }

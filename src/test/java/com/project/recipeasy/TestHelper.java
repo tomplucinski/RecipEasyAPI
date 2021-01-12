@@ -1,10 +1,9 @@
 package com.project.recipeasy;
 
-import com.project.recipeasy.models.Address;
-import com.project.recipeasy.models.Car;
-import com.project.recipeasy.models.Person;
+import com.project.recipeasy.models.*;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -42,5 +41,10 @@ class TestHelper {
 
     List<Person> getListMaxAlex() {
         return asList(getMax(), getAlex());
+    }
+
+    public Profile getProfile() {
+        return new Profile().setFirstName("Tom")
+                            .setLastName("Smith");
     }
 }

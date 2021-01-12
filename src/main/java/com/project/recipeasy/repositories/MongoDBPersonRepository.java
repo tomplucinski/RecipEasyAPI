@@ -10,28 +10,19 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.model.ReplaceOneModel;
 import com.mongodb.client.model.WriteModel;
-import com.project.recipeasy.dtos.AverageAgeDTO;
 import com.project.recipeasy.models.Person;
 import org.bson.BsonDocument;
-import org.bson.BsonNull;
-import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.mongodb.client.model.Accumulators.avg;
-import static com.mongodb.client.model.Aggregates.group;
-import static com.mongodb.client.model.Aggregates.project;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.in;
-import static com.mongodb.client.model.Projections.excludeId;
 import static com.mongodb.client.model.ReturnDocument.AFTER;
-import static java.util.Arrays.asList;
 
 @Repository
 public class MongoDBPersonRepository implements PersonRepository {
@@ -125,12 +116,6 @@ public class MongoDBPersonRepository implements PersonRepository {
             return clientSession.withTransaction(
                     () -> personCollection.bulkWrite(clientSession, writes).getModifiedCount(), txnOptions);
         }
-    }
-
-    @Override
-    public double getAverageAge() {
-        List<Bson> pipeline = asList(group(new BsonNull(), avg("averageAge", "$age")), project(excludeId()));
-        return personCollection.aggregate(pipeline, AverageAgeDTO.class).first().getAverageAge();
     }
 
     private List<ObjectId> mapToObjectIds(List<String> ids) {
