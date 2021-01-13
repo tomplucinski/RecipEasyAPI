@@ -7,10 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
-import static java.util.Arrays.asList;
 
 @RestController
 @RequestMapping("/api")
@@ -23,66 +20,43 @@ public class ProfileController {
         this.profileRepository = profileRepository;
     }
 
-    @PostMapping("profile")
+    @PostMapping("/profile")
     @ResponseStatus(HttpStatus.CREATED)
-    public Profile postProfile(@RequestBody Profile profile) {
+    public Profile createProfile(@RequestBody Profile profile) {
         return profileRepository.save(profile);
     }
 
-    @PostMapping("profiles")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<Profile> postProfiles(@RequestBody List<Profile> profiles) {
-        return profileRepository.saveAll(profiles);
-    }
-
-    @GetMapping("profiles")
+    @GetMapping("/profiles")
     public List<Profile> getProfiles() {
         return profileRepository.findAll();
     }
 
-    @GetMapping("profile/{id}")
-    public ResponseEntity<Profile> getProfile(@PathVariable String id) {
+    @GetMapping("/profile/{id}")
+    public ResponseEntity<Profile> getProfileById(@PathVariable String id) {
         Profile profile = profileRepository.findOne(id);
         if (profile == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(profile);
     }
 
-    @GetMapping("profiles/{ids}")
-    public List<Profile> getProfiles(@PathVariable String ids) {
-        List<String> listIds = asList(ids.split(","));
-        return profileRepository.findAll(listIds);
-    }
-
-    @GetMapping("profiles/count")
-    public Long getCount() {
+    @GetMapping("/profiles/count")
+    public Long getProfilesCount() {
         return profileRepository.count();
     }
 
-    @DeleteMapping("profile/{id}")
+    @DeleteMapping("/profile/{id}")
     public Long deleteProfile(@PathVariable String id) {
         return profileRepository.delete(id);
     }
 
-    @DeleteMapping("profiles/{ids}")
-    public Long deleteProfiles(@PathVariable String ids) {
-        List<String> listIds = asList(ids.split(","));
-        return profileRepository.delete(listIds);
-    }
-
-    @DeleteMapping("profiles")
-    public Long deleteProfiles() {
+    @DeleteMapping("/profiles")
+    public Long deleteAllProfiles() {
         return profileRepository.deleteAll();
     }
 
-    @PutMapping("profile")
-    public Profile putProfile(@RequestBody Profile profile) {
+    @PutMapping("/profile")
+    public Profile updateProfile(@RequestBody Profile profile) {
         return profileRepository.update(profile);
-    }
-
-    @PutMapping("profiles")
-    public Long putProfile(@RequestBody List<Profile> profiles) {
-        return profileRepository.update(profiles);
     }
 
     @ExceptionHandler(RuntimeException.class)

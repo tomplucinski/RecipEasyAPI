@@ -49,7 +49,7 @@ public class ProfileControllerIT {
 
     @DisplayName("POST /Profile with 1 profile")
     @Test
-    void postProfile() {
+    void createProfile() {
         // GIVEN
         // WHEN
         ResponseEntity<Profile> result = restTemplate.postForEntity(URL + "/profile", testHelper.getProfile(), Profile.class);

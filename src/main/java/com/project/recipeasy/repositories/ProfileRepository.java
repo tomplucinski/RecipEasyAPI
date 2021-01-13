@@ -10,11 +10,7 @@ public interface ProfileRepository {
 
     Profile save(Profile profile);
 
-    List<Profile> saveAll(List<Profile> profiles);
-
     List<Profile> findAll();
-
-    List<Profile> findAll(List<String> ids);
 
     Profile findOne(String id);
 
@@ -22,11 +18,7 @@ public interface ProfileRepository {
 
     long delete(String id);
 
-    long delete(List<String> ids);
-
     long deleteAll();
 
     Profile update(Profile profile);
-
-    long update(List<Profile> profiles);
 }

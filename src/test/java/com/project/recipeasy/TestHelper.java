@@ -44,7 +44,9 @@ class TestHelper {
     }
 
     public Profile getProfile() {
-        return new Profile().setFirstName("Tom")
-                            .setLastName("Smith");
+        Profile profile = new Profile();
+        profile.setFirstName("Tom");
+        profile.setLastName("Smith");
+        return profile;
     }
 }

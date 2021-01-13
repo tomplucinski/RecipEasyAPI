@@ -13,6 +13,7 @@ public class Recipe {
 
     @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
+    private String profileId;
     private String name;
     private String directions;
     private List<Ingredient> ingredients;
@@ -24,6 +25,14 @@ public class Recipe {
 
     public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    public String getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(String profileId) {
+        this.profileId = profileId;
     }
 
     public String getName() {
@@ -64,6 +73,7 @@ public class Recipe {
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
         return Objects.equals(id, recipe.id) &&
+                Objects.equals(profileId, recipe.profileId) &&
                 Objects.equals(name, recipe.name) &&
                 Objects.equals(directions, recipe.directions) &&
                 Objects.equals(ingredients, recipe.ingredients) &&
@@ -72,13 +82,14 @@ public class Recipe {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, directions, ingredients, createdAt);
+        return Objects.hash(id, profileId, name, directions, ingredients, createdAt);
     }
 
     @Override
     public String toString() {
         return "Recipe{" +
                 "id=" + id +
+                ", profileId='" + profileId + '\'' +
                 ", name='" + name + '\'' +
                 ", directions='" + directions + '\'' +
                 ", ingredients=" + ingredients +
