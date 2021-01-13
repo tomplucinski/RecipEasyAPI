@@ -65,12 +65,30 @@ public class Profile {
     }
 
     @Override
-    public String toString() {
-        return "Person{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", createdAt=" + createdAt + ", recipes=" + recipes + '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Profile profile = (Profile) o;
+        return id.equals(profile.id) &&
+                firstName.equals(profile.firstName) &&
+                lastName.equals(profile.lastName) &&
+                createdAt.equals(profile.createdAt) &&
+                recipes.equals(profile.recipes);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, createdAt, recipes);
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", createdAt=" + createdAt +
+                ", recipes=" + recipes +
+                '}';
     }
 }
