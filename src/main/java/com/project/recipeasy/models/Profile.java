@@ -19,7 +19,6 @@ public class Profile {
     private String email;
     private String password;
     private Date createdAt = new Date();
-    private List<Recipe> recipes;
 
     public ObjectId getId() {
         return id;
@@ -69,14 +68,6 @@ public class Profile {
         this.createdAt = createdAt;
     }
 
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
-
-    public void setRecipes(List<Recipe> recipes) {
-        this.recipes = recipes;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,13 +78,12 @@ public class Profile {
                 Objects.equals(lastName, profile.lastName) &&
                 Objects.equals(email, profile.email) &&
                 Objects.equals(password, profile.password) &&
-                Objects.equals(createdAt, profile.createdAt) &&
-                Objects.equals(recipes, profile.recipes);
+                Objects.equals(createdAt, profile.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email, password, createdAt, recipes);
+        return Objects.hash(id, firstName, lastName, email, password, createdAt);
     }
 
     @Override
@@ -105,7 +95,6 @@ public class Profile {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", createdAt=" + createdAt +
-                ", recipes=" + recipes +
                 '}';
     }
 }

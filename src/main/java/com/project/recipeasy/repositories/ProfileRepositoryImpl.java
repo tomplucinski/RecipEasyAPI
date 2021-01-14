@@ -8,8 +8,6 @@ import com.mongodb.client.ClientSession;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
-import com.mongodb.client.model.ReplaceOneModel;
-import com.mongodb.client.model.WriteModel;
 import com.project.recipeasy.models.Profile;
 import org.bson.BsonDocument;
 import org.bson.types.ObjectId;
