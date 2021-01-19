@@ -1,4 +1,4 @@
-package com.project.recipeasy.controllers;
+package com.project.recipeasy.web.controllers;
 
 import com.project.recipeasy.models.Profile;
 import com.project.recipeasy.repositories.ProfileRepository;
@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class ProfileController {

@@ -1,4 +1,4 @@
-package com.project.recipeasy.controllers;
+package com.project.recipeasy.web.controllers;
 
 import com.project.recipeasy.models.Recipe;
 import com.project.recipeasy.repositories.RecipeRepository;
