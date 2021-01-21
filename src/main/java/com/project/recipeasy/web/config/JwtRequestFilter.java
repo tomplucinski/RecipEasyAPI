@@ -13,8 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
-
 import io.jsonwebtoken.ExpiredJwtException;
 
 @Component
@@ -34,8 +32,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         String username = null;
         String jwtToken = null;
-        // JWT Token is in the form "Bearer token". Remove Bearer word and get
-        // only the Token
+
         if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
             jwtToken = requestTokenHeader.substring(7);
             try {
