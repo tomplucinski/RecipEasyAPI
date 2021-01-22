@@ -42,6 +42,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public UserDTO findByUsername(String username) {
-        return userCollection.find(eq("username")).first();
+        return userCollection.find(eq("username", username)).first();
     }
 }
