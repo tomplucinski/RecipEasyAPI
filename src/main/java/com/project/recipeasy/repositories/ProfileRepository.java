@@ -10,6 +10,8 @@ public interface ProfileRepository {
 
     Profile save(Profile profile);
 
+    Profile findByEmail(String email);
+
     List<Profile> findAll();
 
     Profile findOne(String id);

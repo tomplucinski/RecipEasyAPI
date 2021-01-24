@@ -46,6 +46,11 @@ public class ProfileRepositoryImpl implements ProfileRepository {
     }
 
     @Override
+    public Profile findByEmail(String email) {
+        return profileCollection.find(eq("email", email)).first();
+    }
+
+    @Override
     public List<Profile> findAll() {
         return profileCollection.find().into(new ArrayList<>());
     }
