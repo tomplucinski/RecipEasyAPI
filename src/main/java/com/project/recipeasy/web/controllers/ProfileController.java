@@ -21,12 +21,6 @@ public class ProfileController {
         this.profileRepository = profileRepository;
     }
 
-    @PostMapping("/profile")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Profile createProfile(@RequestBody Profile profile) {
-        return profileRepository.save(profile);
-    }
-
     @GetMapping("/profiles")
     public List<Profile> getProfiles() {
         return profileRepository.findAll();

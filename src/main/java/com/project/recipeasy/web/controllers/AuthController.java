@@ -1,5 +1,6 @@
 package com.project.recipeasy.web.controllers;
 
+import com.project.recipeasy.models.LoginRequest;
 import com.project.recipeasy.models.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ import com.project.recipeasy.web.models.JwtResponse;
 
 @RestController
 @CrossOrigin
-public class JwtAuthenticationController {
+public class AuthController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -39,6 +40,11 @@ public class JwtAuthenticationController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody Profile profile) {
         return ResponseEntity.ok(userDetailsService.save(profile));
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        return ResponseEntity.ok("Logged in");
     }
 
     private void authenticate(String username, String password) throws Exception {
