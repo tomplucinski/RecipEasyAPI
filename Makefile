@@ -15,7 +15,7 @@ test: unit-test integration-test
 
 build_:
 	$(info ~~~~~~~~~~ BUILD ~~~~~~~~~~)
-	mvn package
+	mvn clean install
 
 start-dependencies:
 	$(info ~~~~~~~~~~~ START DEPENDENCIES ~~~~~~~~~~~)
