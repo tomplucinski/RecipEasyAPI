@@ -12,16 +12,25 @@ import com.project.recipeasy.models.Profile;
 import org.bson.BsonDocument;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.ReturnDocument.AFTER;
 
 @Repository
-public class ProfileRepositoryImpl implements ProfileRepository {
+public class ProfileRepositoryImpl implements ProfileRepository, UserDetailsService {
+
+    @Autowired
+    private PasswordEncoder bcryptEncoder;
 
     private static final TransactionOptions txnOptions = TransactionOptions.builder()
                                                                         .readPreference(ReadPreference.primary())
@@ -40,14 +49,21 @@ public class ProfileRepositoryImpl implements ProfileRepository {
 
     @Override
     public Profile save(Profile profile) {
-        profile.setId(new ObjectId());
-        profileCollection.insertOne(profile);
-        return profile;
+        Profile newProfile = Profile.builder()
+                .id(new ObjectId())
+                .firstName(profile.getFirstName())
+                .lastName(profile.getLastName())
+                .email(profile.getEmail())
+                .password(bcryptEncoder.encode(profile.getPassword()))
+                .createdAt(profile.getCreatedAt())
+                .build();
+        profileCollection.insertOne(newProfile);
+        return newProfile;
     }
 
     @Override
-    public Profile findByEmail(String email) {
-        return profileCollection.find(eq("email", email)).first();
+    public Optional<Profile> findByEmail(String email) {
+        return Optional.ofNullable(profileCollection.find(eq("email", email)).first());
     }
 
     @Override
@@ -83,4 +99,13 @@ public class ProfileRepositoryImpl implements ProfileRepository {
         return profileCollection.findOneAndReplace(eq("_id", profile.getId()), profile, options);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<Profile> profile = findByEmail(email);
+        if (!profile.isPresent()) {
+            throw new UsernameNotFoundException("User not found with email: " + email);
+        }
+
+        return new User(profile.get().getEmail(), profile.get().getPassword(), new ArrayList<>());
+    }
 }
