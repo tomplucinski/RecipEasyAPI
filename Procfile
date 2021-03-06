@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -jar target/RecipEasyAPI-1.0.0.jar -Dserver.port=$PORT
