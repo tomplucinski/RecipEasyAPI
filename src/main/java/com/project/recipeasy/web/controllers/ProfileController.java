@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
 public class ProfileController {
 
@@ -37,6 +37,11 @@ public class ProfileController {
 
     public ProfileController(ProfileRepository profileRepository) {
         this.profileRepository = profileRepository;
+    }
+
+    @GetMapping(value = "/ping")
+    public ResponseEntity<String> ping() {
+        return ResponseEntity.ok("pong");
     }
 
     @PostMapping(value = "/register")
