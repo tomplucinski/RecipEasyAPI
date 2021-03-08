@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
+@CrossOrigin(origins = "https://recipeasy-ui.herokuapp.com")
 @RestController
 public class ProfileController {
 
