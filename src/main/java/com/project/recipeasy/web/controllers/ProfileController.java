@@ -39,11 +39,6 @@ public class ProfileController {
         this.profileRepository = profileRepository;
     }
 
-    @GetMapping(value = "/ping")
-    public ResponseEntity<String> ping() {
-        return ResponseEntity.ok("pong");
-    }
-
     @PostMapping(value = "/register")
     public ResponseEntity<AuthResponse> register(@RequestBody Profile profile) throws Exception {
         try {
