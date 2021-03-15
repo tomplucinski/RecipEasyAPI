@@ -12,7 +12,7 @@
 /Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/SwaggerConfig.java
 /Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/SpringConfiguration.java
 /Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/web/config/JwtRequestFilter.java
+/Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/web/models/ApiResponse.java
 /Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/repositories/ProfileRepositoryImpl.java
 /Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/web/controllers/RecipeController.java
-/Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/web/models/AuthResponse.java
 /Users/u403181/c4e/personalProjects/RecipEasyAPI/src/main/java/com/project/recipeasy/repositories/RecipeRepository.java
