@@ -2,7 +2,7 @@ package com.project.recipeasy.web.controllers;
 
 import com.project.recipeasy.web.models.LoginRequest;
 import com.project.recipeasy.models.Profile;
-import com.project.recipeasy.web.models.AuthResponse;
+import com.project.recipeasy.web.models.ApiResponse;
 import com.project.recipeasy.repositories.ProfileRepository;
 import com.project.recipeasy.web.config.JwtTokenUtil;
 import org.slf4j.Logger;
@@ -40,13 +40,13 @@ public class ProfileController {
     }
 
     @PostMapping(value = "/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody Profile profile) throws Exception {
+    public ResponseEntity<ApiResponse> register(@RequestBody Profile profile) throws Exception {
         try {
             Profile savedProfile = profileRespository.save(profile);
             authenticate(profile.getEmail(), profile.getPassword());
             UserDetails userDetails = profileRespository.loadUserByUsername(profile.getEmail());
             String token = jwtTokenUtil.generateToken(userDetails);
-            AuthResponse authResponse = AuthResponse.builder()
+            ApiResponse apiResponse = ApiResponse.builder()
                     .id(savedProfile.getId().toString())
                     .firstName(savedProfile.getFirstName())
                     .lastName(savedProfile.getLastName())
@@ -54,7 +54,7 @@ public class ProfileController {
                     .token(token)
                     .createdAt(savedProfile.getCreatedAt())
                     .build();
-            return ResponseEntity.ok(authResponse);
+            return ResponseEntity.ok(apiResponse);
         } catch (RuntimeException e) {
             throw new RuntimeException("Error Registering User");
         }
@@ -72,7 +72,7 @@ public class ProfileController {
             } else {
                 UserDetails userDetails = profileRespository.loadUserByUsername(foundProfile.getEmail());
                 String token = jwtTokenUtil.generateToken(userDetails);
-                return ResponseEntity.ok(AuthResponse.builder()
+                return ResponseEntity.ok(ApiResponse.builder()
                         .id(foundProfile.getId().toString())
                         .firstName(foundProfile.getFirstName())
                         .lastName(foundProfile.getLastName())
@@ -87,8 +87,9 @@ public class ProfileController {
     @GetMapping("/profile/{id}")
     public ResponseEntity<Profile> getProfileById(@PathVariable String id) {
         Profile profile = profileRepository.findOne(id);
-        if (profile == null)
+        if (profile == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
         return ResponseEntity.ok(profile);
     }
 

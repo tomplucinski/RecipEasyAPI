@@ -1,6 +1,7 @@
 com/project/recipeasy/models/Profile.class
 com/project/recipeasy/web/controllers/ProfileController.class
 com/project/recipeasy/web/config/JwtTokenUtil.class
+com/project/recipeasy/web/models/ApiResponse$ApiResponseBuilder.class
 com/project/recipeasy/SpringConfiguration.class
 com/project/recipeasy/web/controllers/RecipeController.class
 com/project/recipeasy/models/Profile$ProfileBuilder.class
@@ -13,10 +14,9 @@ com/project/recipeasy/web/config/JwtRequestFilter.class
 com/project/recipeasy/repositories/RecipeRepository.class
 com/project/recipeasy/ApplicationStarter.class
 com/project/recipeasy/SwaggerConfig.class
+com/project/recipeasy/web/models/ApiResponse.class
 com/project/recipeasy/web/config/WebSecurityConfig.class
 com/project/recipeasy/repositories/ProfileRepositoryImpl.class
-com/project/recipeasy/web/models/AuthResponse$AuthResponseBuilder.class
 com/project/recipeasy/web/models/LoginRequest.class
 com/project/recipeasy/models/Recipe.class
 com/project/recipeasy/models/Recipe$RecipeBuilder.class
-com/project/recipeasy/web/models/AuthResponse.class
